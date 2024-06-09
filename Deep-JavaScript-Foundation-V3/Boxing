@@ -1,0 +1,54 @@
+In JavaScript and other languages, primitives values don’t have methods or properties, so if you want to use them, you need to use a wrapper.
+
+
+Primitives are the simplest elements of a programming language. JavaScript has six primitive types: string, Number, boolean, null, undefined, and symbol, and everything else are objects
+
+
+AutoBoxing...
+Manual Boxing and Gotchas...
+Unboxing...
+
+
+#AutoBoxing...
+
+Boxing is wrapping a primitive value in an Object. When you treat a primitive type like if it were an object, e.g., calling to the toLowerCase function, JavaScript would wrap the primitive type into the corresponding object. This new object is then linked to the related built-in <.prototype>, so you can use prototype methods on primitive types.
+
+//String primitive name
+const name = "KESK";
+name.toLowerCase();//kesk
+name.substring(1);//ESK
+
+As you can see here when you try to use a method on a primitive value JavaScript automatically does the boxing, and in consequence, you can use the different methods of the String object:
+
+
+
+=========================================
+
+#Manual Boxing and Gotchas...
+
+In general, using the boxed object wrapper directly isn’t usually a good idea because there are some gotchas related to him, and you have to be careful if you don’t want unexpected results.
+
+const a = new Boolean(true)
+if(a) console.log("it's true")// it's true
+const b = new Boolean(false)
+if(!b) console.log("never runs");// objects are “truthy.“
+const c = Object(false)
+if(!c) console.log("never runs"); // objects are “truthy.“
+
+The problem here is that you are creating an object wrapper around a false value, but objects are “truthy.” So, if you want to box a primitive value manually, be careful.
+
+In general, it is better to let implicitly boxing because browsers are optimized to do this,
+
+
+#Unboxing...
+
+The easiest way to obtain the underlying primitive value from an object wrapper is to use the valueOf() method:
+
+const a = Object(false);
+a == false; //true
+a === false //false
+a.valueOf() == false //true
+a.valueOf() === false //true
+Unboxing can also be done implicitly (coercion):
+
+a == false; //true

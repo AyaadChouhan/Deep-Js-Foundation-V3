@@ -1,0 +1,56 @@
+What is Scope?
+At its core, scope in JavaScript refers to the context or environment in which variables are declared and can be accessed.
+
+It dictates the visibility and lifetime of a variable, determining where in your code a particular variable is valid and accessible.
+
+Types Of scope in JavaScript..
+#Global Scope
+#Function Scope or Local Scope
+#Block Scope
+
+
+Global Scope...
+
+In JavaScript, global scope is the widest scope available. Variables declared in global scope are accessible from anywhere in your code, whether it's inside functions, conditional statements, loops, or other blocks of code.
+
+Variables declared in global scope are typically defined outside of any functions or code blocks. For example:
+
+var globalVariable = "I'm in global scope";
+
+function myFunction() {
+  // This function can access globalVariable
+  console.log(globalVariable);
+}
+myFunction();
+
+
+#Local Scope...
+
+Local scope in JavaScript is like a private room within a building – it's an enclosed space where variables are only accessible from within that specific room.
+
+When you declare a variable in local scope, it is limited in visibility to the block of code, function, or conditional statement in which it is defined.
+
+function myFunction() {
+  const localVariable = "I'm in local scope";
+  console.log(localVariable);
+}
+
+myFunction();
+// Accessing localVariable here would result in an error
+In this code, localVariable is in local scope, which means it's only accessible within the myFunction block.
+
+
+
+#Block Scope...
+
+Block scope in JavaScript is like a series of nested boxes within a larger container, each with its own set of variables.
+
+Unlike global and local scopes, which are defined by functions or global context, block scope is created within specific code blocks, such as conditional statements (if, else, switch) and loops (for, while).
+
+if (true) {
+  let blockVariable = "I'm in block scope";
+  console.log(blockVariable);
+}
+// Accessing blockVariable here would result in an error
+
+In this code, blockVariable is defined within the block created by the if statement and is inaccessible outside of it.
